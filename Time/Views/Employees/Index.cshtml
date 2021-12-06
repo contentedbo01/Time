@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Time.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Список работников</h1>
+
+<p>
+    <a asp-action="Create">Создать нового работника</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User.FirstNameAndLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceOfWork.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FirstNameAndLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfWork.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

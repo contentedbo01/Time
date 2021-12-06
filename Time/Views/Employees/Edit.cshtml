@@ -1,0 +1,40 @@
+﻿@model Time.VIewModels.EmployeeView
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">Имя работника</label>
+                <select asp-for="UserName" class="form-control" asp-items="ViewBag.UserName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlaceName" class="control-label">Место работы</label>
+                <select asp-for="PlaceName" class="form-control" asp-items="ViewBag.PlaceOfWorkName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PositionName" class="control-label">Должность</label>
+                <select asp-for="PositionName" class="form-control" asp-items="ViewBag.PositionName"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
